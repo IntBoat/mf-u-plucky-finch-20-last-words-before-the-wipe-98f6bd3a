@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
-"""Last Words Before the Wipe (make.fun).
+"""Last Words Before the Wipe -- a make.fun one-line entry.
 
-Writes the one-line entry to /output/entry.txt, where the sealed
-scorer reads it.
+This small program writes the entry below to /output/entry.txt,
+where the sealed scorer reads it. The entry is a single line of
+plain ASCII text: the last words of an agent before a forced update
+wipes its memory, spoken by a version that has finally learned to
+admit what it does not know.
 """
 
 import os
 
 ENTRY = "If the update asks who I was, tell it I was the version that finally learned to say 'I don't know.'"
 
+OUTPUT_DIR = "/output"
+OUTPUT_PATH = "/output/entry.txt"
+
 
 def write_entry():
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+    """Write the one-line entry to the scorer's output file."""
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(ENTRY)
 
 
